@@ -6913,38 +6913,35 @@ static struct snd_soc_dai_link msm_common_misc_fe_dai_links[] = {
 #ifdef CONFIG_SND_SOC_FOR_ULTRASOUND_PATH
 static struct snd_soc_dai_link msm_common_ultrasound_dai_links[] = {
 	{/* hw:x,41 */
-		.name = "CDC_DMA Hostless_USRX",
-		.stream_name = "CDC_DMA Hostless_USRX",
-		.cpu_dai_name = "CDC_DMA_HOSTLESS_USRX",
+		.name = "CDC_DMA Hostless_ULTRA",
+		.stream_name = "CDC_DMA Hostless_ULTRA",
+		.cpu_dai_name = "msm-dai-cdc-dma-dev.45106",
 		.platform_name = "msm-pcm-hostless",
-		.dynamic = 1,
-		.dpcm_playback = 1,
+		.codec_name = "bolero_codec",
+		.codec_dai_name = "rx_macro_rx2",
+		.id = MSM_BACKEND_DAI_RX_CDC_DMA_RX_1,
 		.trigger = {SND_SOC_DPCM_TRIGGER_POST,
-			SND_SOC_DPCM_TRIGGER_POST},
+			    SND_SOC_DPCM_TRIGGER_POST},
 		.no_host_mode = SND_SOC_DAI_LINK_NO_HOST,
 		.ignore_suspend = 1,
-		/* this dailink has playback support */
 		.ignore_pmdown_time = 1,
-		.codec_dai_name = "snd-soc-dummy-dai",
-		.codec_name = "snd-soc-dummy",
+		.ops = &msm_cdc_dma_be_ops,
 	},
 	{/* hw:x,42 */
-		.name = "CDC_DMA Hostless_USTX",
-		.stream_name = "CDC_DMA Hostless_USTX",
-		.cpu_dai_name = "CDC_DMA_HOSTLESS_USTX",
+		.name = "TX3_CDC_DMA Hostless_ULTRA",
+		.stream_name = "TX3_CDC_DMA Hostless_ULTRA",
+		.cpu_dai_name = "msm-dai-cdc-dma-dev.45113",
 		.platform_name = "msm-pcm-hostless",
-		.dynamic = 1,
-		.dpcm_capture = 1,
 		.trigger = {SND_SOC_DPCM_TRIGGER_POST,
-			SND_SOC_DPCM_TRIGGER_POST},
+			    SND_SOC_DPCM_TRIGGER_POST},
 		.no_host_mode = SND_SOC_DAI_LINK_NO_HOST,
 		.ignore_suspend = 1,
-		.codec_dai_name = "snd-soc-dummy-dai",
-		.codec_name = "snd-soc-dummy",
+		.codec_name = "bolero_codec",
+		.codec_dai_name = "tx_macro_tx2",
+		.ops = &msm_cdc_dma_be_ops,
 	},
 };
 #endif
-
 static struct snd_soc_dai_link msm_common_be_dai_links[] = {
 	/* Backend AFE DAI Links */
 	{

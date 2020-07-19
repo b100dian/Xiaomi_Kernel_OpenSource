@@ -40,8 +40,10 @@
 #include <dsp/q6core.h>
 #include <dsp/q6common.h>
 #include <dsp/audio_cal_utils.h>
+#ifdef CONFIG_SND_SOC_FOR_ULTRASOUND_PATH
 #include <dsp/apr_elliptic.h>
 #include <elliptic/elliptic_mixer_controls.h>
+#endif
 /* for mius start */
 #ifdef CONFIG_US_PROXIMITY
 #include <dsp/apr_mius.h>
@@ -23912,7 +23914,9 @@ static int msm_routing_probe(struct snd_soc_platform *platform)
 #ifdef SMART_AMP
 	msm_smartamp_add_controls(platform);
 #endif
+#ifdef CONFIG_SND_SOC_FOR_ULTRASOUND_PATH
 	elliptic_add_platform_controls(platform);
+#endif
 	return 0;
 }
 

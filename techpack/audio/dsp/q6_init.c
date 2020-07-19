@@ -33,7 +33,9 @@ static int __init audio_q6_init(void)
 	avtimer_init();
 	msm_mdf_init();
 	voice_mhi_init();
+#ifdef CONFIG_SND_SOC_FOR_ULTRASOUND_PATH
 	elliptic_driver_init();
+#endif
 /* for mius start */
 #ifdef CONFIG_US_PROXIMITY
 	mius_driver_init();
@@ -60,7 +62,9 @@ static void __exit audio_q6_exit(void)
 	audio_cal_exit();
 	adsp_err_exit();
 	voice_mhi_exit();
+#ifdef CONFIG_SND_SOC_FOR_ULTRASOUND_PATH
 	elliptic_driver_exit();
+#endif
 /* for mius start */
 #ifdef CONFIG_US_PROXIMITY
 	mius_driver_exit();

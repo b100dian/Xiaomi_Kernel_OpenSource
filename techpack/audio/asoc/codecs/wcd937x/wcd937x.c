@@ -1268,9 +1268,7 @@ static int wcd937x_codec_enable_adc(struct snd_soc_dapm_widget *w,
 		mutex_lock(&wcd937x->ana_tx_clk_lock);
 		wcd937x->ana_adc_count--;
 		mutex_unlock(&wcd937x->ana_tx_clk_lock);
-
 		dev_dbg(codec->dev, "%s SND_SOC_DAPM_POST_PMD, ana_adc_count=%d\n", __func__, wcd937x->ana_adc_count);
-
 		wcd937x_tx_connect_port(codec, ADC1 + (w->shift), false);
 		if (wcd937x->ana_adc_count <= 0) {
 			wcd937x->ana_adc_count = 0;
@@ -1282,7 +1280,6 @@ static int wcd937x_codec_enable_adc(struct snd_soc_dapm_widget *w,
 		wcd937x_tx_connect_port(codec, ADC1 + (w->shift), false);
 		snd_soc_update_bits(codec, WCD937X_DIGITAL_CDC_ANA_CLK_CTL,
 				    0x08, 0x00);
-
 #endif
 		break;
 	};
@@ -1326,9 +1323,7 @@ static int wcd937x_enable_req(struct snd_soc_dapm_widget *w,
 		mutex_lock(&wcd937x->ana_tx_clk_lock);
 		wcd937x->ana_tx_req_count--;
 		mutex_unlock(&wcd937x->ana_tx_clk_lock);
-
 		dev_dbg(codec->dev, "%s SND_SOC_DAPM_POST_PMD, ana_tx_req_count=%d\n", __func__, wcd937x->ana_tx_req_count);
-
 		if (wcd937x->ana_tx_req_count <= 0) {
 			dev_dbg(codec->dev, "%s SND_SOC_DAPM_POST_PMD, ana_tx_req_count=%d, POWER DOWN\n", __func__, wcd937x->ana_tx_req_count);
 			wcd937x->ana_tx_req_count = 0;

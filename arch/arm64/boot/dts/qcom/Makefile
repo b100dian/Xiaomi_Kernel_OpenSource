@@ -37,7 +37,7 @@ ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
 		sa8155-adp-star-overlay.dtbo \
 		sa8155p-adp-star-overlay.dtbo \
 		sa8155-v2-adp-air-overlay.dtbo \
-                sa8155p-v2-adp-air-overlay.dtbo \
+		sa8155p-v2-adp-air-overlay.dtbo \
 		sa8155-adp-alcor-overlay.dtbo \
 		sa8155p-adp-alcor-overlay.dtbo \
 		sm8150-sdx50m-cdp-overlay.dtbo \

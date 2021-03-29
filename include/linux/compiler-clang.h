@@ -34,8 +34,6 @@
 #define __nocfi		__attribute__((no_sanitize("cfi")))
 #endif
 
-# define __compiletime_object_size(obj) __builtin_object_size(obj, 0)
-
 /*
  * Not all versions of clang implement the the type-generic versions
  * of the builtin overflow checkers. Fortunately, clang implements

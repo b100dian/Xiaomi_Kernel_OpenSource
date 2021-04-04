@@ -33,6 +33,8 @@ obj-m += dsp/codecs/
 obj-m += soc/
 obj-m += asoc/
 obj-m += asoc/codecs/
+header-m += include/
+header-m += include/uapi
 ifeq ($(TARGET_SUPPORT), $(filter $(TARGET_SUPPORT), sdm670 qcs605 sdmsteppe))
 obj-m += asoc/codecs/wcd934x/
 endif

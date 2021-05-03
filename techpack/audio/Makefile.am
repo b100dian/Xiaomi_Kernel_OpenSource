@@ -27,29 +27,29 @@ ifeq ($(TARGET_SUPPORT), sdmsteppe)
 KBUILD_OPTIONS += CONFIG_ARCH_SM6150=y
 endif
 
-obj-y := ipc/
-obj-y += dsp/
-obj-y += dsp/codecs/
-obj-y += soc/
-obj-y += asoc/
-obj-y += asoc/codecs/
+obj-m := ipc/
+obj-m += dsp/
+obj-m += dsp/codecs/
+obj-m += soc/
+obj-m += asoc/
+obj-m += asoc/codecs/
 ifeq ($(TARGET_SUPPORT), $(filter $(TARGET_SUPPORT), sdm670 qcs605 sdmsteppe))
-obj-y += asoc/codecs/wcd934x/
+obj-m += asoc/codecs/wcd934x/
 endif
 ifeq ($(TARGET_SUPPORT), $(filter $(TARGET_SUPPORT), apq8053 sdm670 qcs605))
-obj-y += asoc/codecs/sdm660_cdc/
+obj-m += asoc/codecs/sdm660_cdc/
 endif
 ifeq ($(TARGET_SUPPORT), $(filter $(TARGET_SUPPORT), sdm670 qcs605))
-obj-y += asoc/codecs/msm_sdw/
+obj-m += asoc/codecs/msm_sdw/
 endif
 ifeq ($(TARGET_SUPPORT), $(filter $(TARGET_SUPPORT), qcs40x))
-obj-y += asoc/codecs/bolero/
-obj-y += asoc/codecs/csra66x0/
-obj-y += asoc/codecs/ep92/
+obj-m += asoc/codecs/bolero/
+obj-m += asoc/codecs/csra66x0/
+obj-m += asoc/codecs/ep92/
 endif
 ifeq ($(TARGET_SUPPORT), sdmsteppe)
-obj-y += asoc/codecs/bolero/
-obj-y += asoc/codecs/wcd937x/
+obj-m += asoc/codecs/bolero/
+obj-m += asoc/codecs/wcd937x/
 endif
 
 all:

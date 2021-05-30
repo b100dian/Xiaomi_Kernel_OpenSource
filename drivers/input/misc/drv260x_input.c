@@ -1144,6 +1144,13 @@ static int drv260x_haptics_upload_effect(struct input_dev *dev,
 	printk("%s  %d  pDrv2604data->effect_type= 0x%x\n", __func__, __LINE__,
 	       pDrv2604data->effect_type);
 
+	if (pDrv2604data->effect_type == FF_PERIODIC && 
+		effect->u.periodic.waveform != FF_CUSTOM) {
+		printk("%s  %d pDrv2604data waveform not custom = 0x%x, changing tyoe. \n",
+			 __func__, __LINE__, effect->u.periodic.waveform);
+		pDrv2604data->effect_type = FF_CONSTANT;
+	}
+
 	if (pDrv2604data->effect_type == FF_CONSTANT) {
 		printk("%s  effect_type is  FF_CONSTANT!, duration=%d \n",
 		       __func__, effect->replay.length);

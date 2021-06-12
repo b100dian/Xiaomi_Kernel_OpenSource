@@ -167,7 +167,7 @@ LINUX_INC +=	-Iinclude/linux
 INCS +=		$(COMMON_INC) \
 		$(UAPI_INC)
 
-EXTRA_CFLAGS += $(INCS)
+EXTRA_CFLAGS += $(INCS) -DDEBUG
 
 
 CDEFINES +=	-DANI_LITTLE_BYTE_ENDIAN \
@@ -178,7 +178,8 @@ CDEFINES +=	-DANI_LITTLE_BYTE_ENDIAN \
 		-DPTT_SOCK_SVC_ENABLE \
 		-Wall\
 		-Werror\
-		-D__linux__
+		-D__linux__\
+		-DDEBUG
 
 ifneq (,$(filter $(TARGET_PRODUCT), davinci davinciin phoenix phoenixin tucana toco tocoin))
 	CDEFINES += -DCONFIG_SND_SOC_TFA9874_FOR_DAVI
